@@ -32,7 +32,7 @@
     <div class="demo-split">
         <split v-model="split1">
             <div slot="left" class="demo-split-pane">
-                资产类型: <span style="font-size: 25px;margin-left: 30px">{{metadata.asset_type_str}}</span><br>
+                数据类型: <span style="font-size: 25px;margin-left: 30px">{{metadata.asset_type_str}}</span><br>
                 <div id="test9"></div>
                 <br/>
                 <br/>
@@ -250,7 +250,7 @@
                 component.$Modal.error({
                     title: "温馨提示",
                     width: 500,
-                    content: "请先选择一个资产类型",
+                    content: "请先选择一个数据类型",
                 });
                 return;
             }
@@ -306,7 +306,7 @@
                     throw e;
                 }
             },
-            // 资产类型部分
+            // 数据类型部分
             get_tree_general_asset_manage_system_metadata: async function (request_data) {
                 return this.base(async function () {
                     const res_data = await axios.post(url_prefix + "/general_asset_manage_system/metadata_manage/select_tree", request_data);
@@ -479,7 +479,7 @@
                 , click: function (obj) {
                     const id = obj.data.id;
                     const name = obj.data.title;
-                    if ("root" == id || obj.data.children.length > 0) {
+                    if ("root" == id) {
                         return;
                     }
                     vue_data.metadata.asset_type = id;
@@ -741,7 +741,7 @@
             component.$Modal.error({
                 title: "温馨提示",
                 width: 500,
-                content: "请先选择一个资产类型",
+                content: "请先选择一个数据类型",
             });
             return;
         }
@@ -811,7 +811,7 @@
             component.$Modal.error({
                 title: "温馨提示",
                 width: 500,
-                content: "请先选择一个资产类型",
+                content: "请先选择一个数据类型",
             });
             return;
         }
